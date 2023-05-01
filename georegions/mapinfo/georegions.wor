@@ -1,0 +1,109 @@
+!Workspace
+!Version 500
+!Charset WindowsLatin1
+Open Table "gregpldd" As Geological_regions Interactive
+Open Table "greglndd" As Geo_region_boundaries Interactive
+Map From Geo_region_boundaries,Geological_regions 
+  Position (0.0520833,0.0520833) Units "in"
+  Width 4.90625 Units "in" Height 3.23958 Units "in" 
+Set Window FrontWindow() ScrollBars Off Autoscroll On Title "National Geoscience Datasets GIS"
+Set Map
+  CoordSys Earth Projection 3, 104, "m", 134, 0, -18, -36, 0, 0
+  Center (-1052836.855,-3057718.85)
+  Zoom 6700.860332 Units "km"
+  Preserve Zoom Display Zoom
+  XY Units "m" Distance Units "km" Area Units "sq m"
+shade 2 with AGE_CLASS values 
+  "" Brush (2,16711680,16777215) Pen (1,1,0) ,
+  "Archaean" Brush (2,9800292,16777215) Pen (1,1,0) ,
+  "Archaean to Proterozoic" Brush (2,13416577,16777215) Pen (1,1,0) ,
+  "Cainozoic" Brush (2,16777168,16777215) Pen (1,1,0) ,
+  "Mesozoic" Brush (2,5680257,16777215) Pen (1,1,0) ,
+  "Mesozoic to Cainozoic" Brush (2,13696976,16777215) Pen (1,1,0) ,
+  "Palaeozoic" Brush (2,10535167,16777215) Pen (1,1,0) ,
+  "Palaeozoic to Cainozoic" Brush (2,13697023,16777215) Pen (1,1,0) ,
+  "Palaeozoic to Mesozoic" Brush (2,13693695,16777215) Pen (1,1,0) ,
+  "Proterozoic" Brush (2,16756912,16777215) Pen (1,1,0) ,
+  "Proterozoic to Mesozoic" Brush (2,16752895,16777215) Pen (1,1,0) ,
+  "Proterozoic to Palaeozoic" Brush (2,16765183,16777215) Pen (1,1,0) 
+  default Brush (1,0,16777215) Pen (1,2,0)   # color 1 # 
+shade 1 with DESC values 
+  "Coastline" Line (1,2,255) ,
+  "Miscellaneous boundary" Line (1,2,0) 
+  default Line (1,2,0)   # color 1 # 
+Set Map
+  Layer 1
+    Display Value
+    Selectable Off
+  Layer 2
+    Display Global
+    Label Line Arrow Position Above Font ("Arial",0,9,0) Pen (1,2,0) 
+      With DESC
+      Parallel On Auto Off Overlap Off Duplicates Off Offset 2
+      Visibility On
+  Layer 3
+    Display Value
+    Selectable Off
+  Layer 4
+    Display Graphic
+    Label Line None Position Center Font ("Arial",0,9,0) Pen (1,2,0) 
+      With REGNAME
+      Parallel On Auto Off Overlap Off Duplicates On Offset 2
+      Visibility On
+set legend 
+  layer 1 
+    display on 
+    shades off 
+    symbols off 
+    lines on 
+    count off 
+    title "Geological Regions" Font ("Arial",0,9,0)
+    subtitle "Indicating boundary type" Font ("Arial",0,8,0)
+    ascending on 
+    ranges Font ("Arial",0,8,0)
+      auto display off ,
+      auto display on ,
+      "Geological region boundary" display on  
+set legend 
+  layer 3 
+    display on 
+    shades on 
+    symbols off 
+    lines off 
+    count off 
+    title "Geological Regions" Font ("Arial",0,9,0)
+    subtitle "Indicating Era age" Font ("Arial",0,8,0)
+    ascending on 
+    ranges Font ("Arial",0,8,0)
+      auto display off ,
+      auto display off ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on ,
+      auto display on  
+Dim _current_map_or_graph As Integer
+_current_map_or_graph = FrontWindow()
+Set Next Document Parent WindowInfo(_current_map_or_graph,12) Style 1
+Create Legend From Window _current_map_or_graph Hide
+Set Window WindowID(0)
+  Position (-0.0416667,-0.25) Units "in"
+Show
+Undim _current_map_or_graph
+Dim WorkspaceMaximizedWindow As Integer
+WorkspaceMaximizedWindow = Frontwindow()
+Create Cartographic Legend
+  Position (10.2292,0.208333) Units "in"
+  Width 2.79167 Units "in" Height 5 Units "in" 
+  Window Title "Legend of greglndd,Geological_regions Map"
+  Portrait
+  Frame From Layer 1
+    Border Pen (0,1,0) 
+Set Window WorkspaceMaximizedWindow Max
+Undim WorkspaceMaximizedWindow

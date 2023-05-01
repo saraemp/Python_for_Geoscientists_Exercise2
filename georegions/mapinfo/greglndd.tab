@@ -1,0 +1,11 @@
+!table
+!version 300
+!charset WindowsLatin1
+
+Definition Table
+  Type NATIVE Charset "WindowsLatin1"
+  Fields 4
+    FEATURE Char (12) ;
+    UFI Integer ;
+    AGSO_CODE Integer ;
+    DESC Char (100) Index 1 ;

@@ -1,0 +1,21 @@
+!table
+!version 300
+!charset WindowsLatin1
+
+Definition Table
+  Type NATIVE Charset "WindowsLatin1"
+  Fields 14
+    FEATURE Char (12) ;
+    UFI Integer ;
+    REGNO Integer ;
+    REGNAME Char (64) ;
+    AGE_CLASS Char (64) ;
+    MAIN_AGE Char (64) ;
+    APROX_AREA Integer ;
+    LANDFORMS Char (254) ;
+    STRATIG Char (254) ;
+    IGNEOUS Char (254) ;
+    REG_META Char (254) ;
+    DEFORMATN Char (254) ;
+    MINDEPS Char (254) ;
+    GEODX_REF Char (64) ;
